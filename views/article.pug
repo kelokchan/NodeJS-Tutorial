@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    .panel.panel-primary
+        .panel-heading
+            .panel-title= article.title
+        .panel-body= article.body
+        .panel-footer.text-right Written by #{article.author}
+    
+    .btn-toolbar
+        a.btn.btn-default(href='/articles/edit/'+article._id) Edit
+        a.btn.btn-danger.delete-article(href='#', data-id=article._id) Delete
+        

@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1 #{title}
+    ul.list-group
+        each article, i in articles
+            a.list-group-item.clear-fix(href='/articles/'+ article._id)= article.title
+                //- span.btn-toolbar.pull-right
+                //-     button.btn.btn-xs.btn-primary(data-toggle="tooltip", title="View")
+                //-         i.glyphicon.glyphicon-eye-open
+                //-     button.btn.btn-xs.btn-danger.delete-article(data-toggle="tooltip", title="Delete", data-id=article._id)
+                //-         i.glyphicon.glyphicon-trash
+        else
+            h4.text-center No article to display. 
+                span Create one 
+                    a(href='/articles/add') here.
