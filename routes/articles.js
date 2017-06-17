@@ -78,7 +78,6 @@ router.post('/edit/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    console.log(req.params.id);
     let query = {
         _id: req.params.id
     }

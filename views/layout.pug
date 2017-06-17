@@ -23,7 +23,8 @@ html
         .container
             != messages('message', locals)
             if errors
-                div(class="alert alert-danger")
+                div(class="alert alert-danger fade in ")
+                    a.close(href='#', data-dismiss='alert', aria-label='close') ×
                     ul
                         each error, i in errors
                             li #{error.msg}

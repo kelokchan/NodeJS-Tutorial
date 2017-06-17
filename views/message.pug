@@ -1,4 +1,6 @@
 .messages
-  each type in Object.keys(messages)
-      each message in messages[type]
-        div(class="alert alert-"+type) #{message}
+    each type in Object.keys(messages)
+        each message in messages[type]
+            div(class="alert fade in alert-"+type) 
+                a.close(href='#', data-dismiss='alert', aria-label='close') ×
+                |  #{message}  
