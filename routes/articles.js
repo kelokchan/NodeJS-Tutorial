@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Article = require('../models/article');
+let Article = require('../models/article');
 
 // Add route
 router.get('/add', (req, res) => {
@@ -15,8 +15,8 @@ router.post('/add', (req, res) => {
     req.checkBody('author', 'Author is required').notEmpty();
     req.checkBody('body', 'Body is required').notEmpty();
 
+    // Retrieve validation errors if there is any
     req.getValidationResult().then((result) => {
-        console.log(result);
         if (!result.isEmpty()) {
             let errors = result.array();
             res.render('add_article', {
