@@ -1,13 +1,15 @@
 extends layout
 
 block content
-    .panel.panel-primary
+    .panel.panel-default
         .panel-heading
             .panel-title= article.title
         .panel-body= article.body
-        .panel-footer.text-right Written by #{article.author}
+        .panel-footer.text-right Written by #{author}
     
-    .btn-toolbar
-        a.btn.btn-default(href='/articles/edit/'+article._id) Edit
-        a.btn.btn-danger.delete-article(href='#', data-id=article._id) Delete
+    if user
+        if user.id == article.author
+            .btn-toolbar
+                a.btn.btn-default(href='/articles/edit/'+article._id) Edit
+                a.btn.btn-danger.delete-article(href='#', data-id=article._id) Delete
         
